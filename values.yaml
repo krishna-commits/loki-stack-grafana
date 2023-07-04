@@ -1,0 +1,24 @@
+loki:
+  enabled: true
+  persistence:
+     enabled: true
+     storageClassName: gp2 
+     size: 30Gi
+  config:
+     table_manager:
+       retention_deletes_enabled : true
+       retention_period: 720h
+
+promtail:
+  enabled: true
+
+grafana:
+  enabled: true
+  sidecar:
+    datasources:
+      enabled: true
+  image:
+    tag: 7.5.0
+
+prometheus:
+  enabled: false
